@@ -72,11 +72,23 @@ public class PlayerBoard extends BattleshipBoardTemplate {
                 }
             }
         }
+        for (Space[] i : board) { // unselects all the spaces after the ship is made
+            for (Space j : i) {
+                if (j.isSelected()) {
+                    j.toggleSelect();
+                }
+            }
+        }
         return true;
     }
 
     public boolean hit(int row, int column) {
+        board[row][column].hitSpot();
+        return (board[row][column].shipExists());
+    }
 
+    public boolean spotIsHit(int row, int column) {
+        return board[row][column].returnHit();
     }
 
     public Space returnSpace(int row, int column) {
