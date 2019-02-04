@@ -18,11 +18,134 @@ public class CPUBoard extends BattleshipBoardTemplate {
             int randCol = (int) (Math.random() * 10);
             int direct = (int) (Math.random() * 2); //determines the direction of the ship that is being placed-- 1 is horizontal and 2 is vertical
             if (shipNum == 1){
-                if(direct == 1){
-
+                if(direct == 1){ //ship is horizontal
+                    if(randCol + 4 > 10){
+                        randCol= (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randCol2 = randCol+4;
+                        placeShip(randRow, randRow,randCol, randCol2);
+                    }
+                }
+                if(direct == 2){ //ship is vertical
+                    if(randRow + 4 > 10){
+                        randRow = (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randRow2 = randCol+4;
+                        placeShip(randRow, randRow2,randCol, randCol);
+                    }
+                }
+            }
+            if (shipNum == 2){//length 4
+                if(direct == 1){ //ship is horizontal
+                    if(randCol + 3 > 10){
+                        randCol= (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randCol2 = randCol+3;
+                        placeShip(randRow, randRow,randCol, randCol2);
+                    }
+                }
+                if(direct == 2){ //ship is vertical
+                    if(randRow + 3 > 10){
+                        randRow = (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randRow2 = randCol+3;
+                        placeShip(randRow, randRow2,randCol, randCol);
+                    }
+                }
+            }
+            if (shipNum == 3){//length 3
+                if(direct == 1){ //ship is horizontal
+                    if(randCol + 2 > 10){
+                        randCol= (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randCol2 = randCol+2;
+                        placeShip(randRow, randRow,randCol, randCol2);
+                    }
+                }
+                if(direct == 2){ //ship is vertical
+                    if(randRow + 2 > 10){
+                        randRow = (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randRow2 = randCol+2;
+                        placeShip(randRow, randRow2,randCol, randCol);
+                    }
+                }
+            }
+            if (shipNum == 4||shipNum ==5){//length 2
+                if(direct == 1){ //ship is horizontal
+                    if(randCol + 1 > 10){
+                        randCol= (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randCol2 = randCol+1;
+                        placeShip(randRow, randRow,randCol, randCol2);
+                    }
+                }
+                if(direct == 2){ //ship is vertical
+                    if(randRow + 1 > 10){
+                        randRow = (int) (Math.random() * 10);
+                    }
+                    else{
+                        int randRow2 = randCol+1;
+                        placeShip(randRow, randRow2,randCol, randCol);
+                    }
                 }
             }
         }
+    }
+
+    public boolean placeShip(int row1, int row2, int column1, int column2){
+        if (row1 != row2) {
+            if (row1 < row2) {
+                for (int i = row1; i <= row2; i ++) {
+                    if (board[i][column1].shipExists()) {
+                        return false;
+                    }
+                }
+                for (int i = row1; i <= row2; i ++) {
+                    board[i][column1].placeShip();
+                }
+            }
+            else {
+                for (int i = row2; i <= row1; i ++) {
+                    if (board[i][column1].shipExists()) {
+                        return false;
+                    }
+                }
+                for (int i = row2; i <= row1; i ++) {
+                    board[i][column1].placeShip();
+                }
+            }
+        }
+        else if (column1 != column2) {
+            if (column1 < column2) {
+                for (int i = column1; i <= column2; i ++) {
+                    if (board[row1][i].shipExists()) {
+                        return false;
+                    }
+                }
+                for (int i = column1; i <= column2; i ++) {
+                    board[row1][i].placeShip();
+                }
+            }
+            else {
+                for (int i = column2; i <= column1; i ++) {
+                    if (board[row1][i].shipExists()) {
+                        return false;
+                    }
+                }
+                for (int i = column2; i <= column1; i ++) {
+                    board[row1][i].placeShip();
+                }
+            }
+        }
+        return true;
     }
 
     public boolean selectSpace(int row, int column) { // selecting a cpu board will shoot it
