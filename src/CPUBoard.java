@@ -5,7 +5,7 @@ public class CPUBoard extends BattleshipBoardTemplate {
         board = new Space[length][width];
         for (int i = 0; i < board.length; i ++) {
             for (int j = 0; j < board[i].length; j ++) {
-                board[i][j] = new Space();
+                board[i][j] = new Space(i, j);
             }
         }
     }
