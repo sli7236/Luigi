@@ -77,6 +77,10 @@ public class PlayerBoard extends BattleshipBoardTemplate {
         return ships;
     }
 
+    public void addShip() {
+        ships ++;
+    }
+
     public boolean spotIsHit(int row, int column) {
         return board[row][column].returnHit();
     }

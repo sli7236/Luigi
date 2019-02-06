@@ -43,6 +43,9 @@ public class GameBattleShip {
                                 playerBoard.placeShip(i, selectedSpace.returnColumn());
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
+                            playerBoard.addShip();
+                            selectedSpace.setSelect(false);
+                            secondSpace.setSelect(false);
                         }
                     }
                     else if (selectedSpace.compareRow(secondSpace) == 0) {
@@ -55,7 +58,7 @@ public class GameBattleShip {
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             selectedSpace.setSelect(false);
-
+                            secondSpace.setSelect(false);
                         }
                     }
                     else {
@@ -72,6 +75,9 @@ public class GameBattleShip {
                                 playerBoard.placeShip(i, selectedSpace.returnColumn());
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
+                            playerBoard.addShip();
+                            selectedSpace.setSelect(false);
+                            secondSpace.setSelect(false);
                         }
                     }
                     else if (selectedSpace.compareRow(secondSpace) == 0) {
@@ -83,6 +89,9 @@ public class GameBattleShip {
                                 playerBoard.placeShip(selectedSpace.returnRow(), i);
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
+                            playerBoard.addShip();
+                            selectedSpace.setSelect(false);
+                            secondSpace.setSelect(false);
                         }
                     }
                     else {
@@ -90,10 +99,70 @@ public class GameBattleShip {
                     }
                 }
                 else if (playerBoard.returnNoOfShips() == 2 || playerBoard.returnNoOfShips() == 3) {
-
+                    if (selectedSpace.compareColumn(secondSpace) == 0) {
+                        if (selectedSpace.compareRow(secondSpace) != 3) {
+                            System.err.println("must put down ship length of 3");
+                        }
+                        else {
+                            for (int i = Math.min(selectedSpace.returnRow(), secondSpace.returnRow()); i < Math.max(selectedSpace.returnRow(), secondSpace.returnRow()); i ++) {
+                                playerBoard.placeShip(i, selectedSpace.returnColumn());
+                                System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
+                            }
+                            playerBoard.addShip();
+                            selectedSpace.setSelect(false);
+                            secondSpace.setSelect(false);
+                        }
+                    }
+                    else if (selectedSpace.compareRow(secondSpace) == 0) {
+                        if (selectedSpace.compareColumn(secondSpace) != 3) {
+                            System.err.println("must place down ship length of 3");
+                        }
+                        else {
+                            for (int i = Math.min(selectedSpace.returnColumn(), secondSpace.returnColumn()); i < Math.max(selectedSpace.returnColumn(), secondSpace.returnColumn()); i ++) {
+                                playerBoard.placeShip(selectedSpace.returnRow(), i);
+                                System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
+                            }
+                            playerBoard.addShip();
+                            selectedSpace.setSelect(false);
+                            secondSpace.setSelect(false);
+                        }
+                    }
+                    else {
+                        System.err.println("something happened");
+                    }
                 }
                 else if (playerBoard.returnNoOfShips() == 4) {
-
+                    if (selectedSpace.compareColumn(secondSpace) == 0) {
+                        if (selectedSpace.compareRow(secondSpace) != 2) {
+                            System.err.println("must put down ship length of 2");
+                        }
+                        else {
+                            for (int i = Math.min(selectedSpace.returnRow(), secondSpace.returnRow()); i < Math.max(selectedSpace.returnRow(), secondSpace.returnRow()); i ++) {
+                                playerBoard.placeShip(i, selectedSpace.returnColumn());
+                                System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
+                            }
+                            playerBoard.addShip();
+                            selectedSpace.setSelect(false);
+                            secondSpace.setSelect(false);
+                        }
+                    }
+                    else if (selectedSpace.compareRow(secondSpace) == 0) {
+                        if (selectedSpace.compareColumn(secondSpace) != 2) {
+                            System.err.println("must place down ship length of 2");
+                        }
+                        else {
+                            for (int i = Math.min(selectedSpace.returnColumn(), secondSpace.returnColumn()); i < Math.max(selectedSpace.returnColumn(), secondSpace.returnColumn()); i ++) {
+                                playerBoard.placeShip(selectedSpace.returnRow(), i);
+                                System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
+                            }
+                            playerBoard.addShip();
+                            selectedSpace.setSelect(false);
+                            secondSpace.setSelect(false);
+                        }
+                    }
+                    else {
+                        System.err.println("something happened");
+                    }
                 }
                 else {
                     System.err.println("too many ships");
