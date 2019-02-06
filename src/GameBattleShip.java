@@ -178,4 +178,12 @@ public class GameBattleShip {
         }
         return false;
     }
+
+    public boolean attackPlayerBoard(int row, int column) {
+        if (playerBoard.hit(row, column)) {
+            System.out.println("You got hit AAAAAAAHHHHHHHHHHH");
+            return true;
+        }
+        return false;
+    }
 }
