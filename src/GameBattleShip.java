@@ -46,6 +46,7 @@ public class GameBattleShip {
                             playerBoard.addShip();
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
+                            playerSelectedSpaces ++;
                         }
                     }
                     else if (selectedSpace.compareRow(secondSpace) == 0) {
@@ -59,10 +60,14 @@ public class GameBattleShip {
                             }
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
+                            playerSelectedSpaces ++;
+                            playerBoard.addShip();
                         }
                     }
                     else {
-                        System.err.println("something happened");
+                        System.err.println("diagonal");
+                        selectedSpace.setSelect(false);
+                        secondSpace.setSelect(false);
                     }
                 }
                 else if (playerBoard.returnNoOfShips() == 1) {
@@ -76,6 +81,7 @@ public class GameBattleShip {
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces ++;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -90,6 +96,7 @@ public class GameBattleShip {
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces ++;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -109,6 +116,7 @@ public class GameBattleShip {
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces ++;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -123,6 +131,7 @@ public class GameBattleShip {
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces ++;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -142,6 +151,7 @@ public class GameBattleShip {
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces ++;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -156,6 +166,7 @@ public class GameBattleShip {
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces ++;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
