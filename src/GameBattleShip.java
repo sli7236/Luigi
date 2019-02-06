@@ -171,7 +171,11 @@ public class GameBattleShip {
         }
     }
 
-    public void attackEnemyBoard(int row, int column) {
-
+    public boolean attackEnemyBoard(int row, int column) {
+        if (cpuBoard.hit(row, column)) {
+            System.out.println("It's a hit!");
+            return true;
+        }
+        return false;
     }
 }
