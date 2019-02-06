@@ -65,7 +65,7 @@ public class CSVReader {
     }
 
     private static Data createData(String[] metadata) {
-        /*String DBN = metadata[0];
+        String DBN = metadata[0];
         String school = metadata[1];
         int numSat = Integer.parseInt(metadata[2]);
         int reading = Integer.parseInt(metadata[3]);
@@ -73,7 +73,8 @@ public class CSVReader {
         int writing = Integer.parseInt(metadata[5]);
 
         // create and return book of this metadata
-        return new Data(DBN, school, numSat, reading, math, writing);*/
+        return new Data("d");
+        // return new Data(DBN, school, numSat, reading, math, writing);
     }
 
 }

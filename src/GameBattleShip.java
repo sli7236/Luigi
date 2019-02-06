@@ -186,4 +186,18 @@ public class GameBattleShip {
         }
         return false;
     }
+
+    public boolean ready() {
+        return playerBoard.areYouReadyKids();
+    }
+
+    public void displayBoards() {
+        System.out.println("Player board");
+        for (int i = 0; i < 10; i ++) {
+            for (int j = 0; j < 10; j ++) {
+                System.out.print(playerBoard.returnSpace(i, j).isSelected() + " " + playerBoard.returnSpace(i, j).shipExists() + " | ");
+            }
+            System.out.println();
+        }
+    }
 }
