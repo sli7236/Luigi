@@ -18,7 +18,7 @@ import java.util.List;
 public class CSVReader {
 
     public static void main(String... args) {
-        List<Data> data = readCSVFile(".csv");
+        List<Data> data = readCSVFile("results.csv");
 
         // let's print all the person read from CSV file
         for (Data b : data) {
@@ -65,15 +65,15 @@ public class CSVReader {
     }
 
     private static Data createData(String[] metadata) {
-        /*String DBN = metadata[0];
-        String school = metadata[1];
-        int numSat = Integer.parseInt(metadata[2]);
-        int reading = Integer.parseInt(metadata[3]);
-        int math = Integer.parseInt(metadata[4]);
-        int writing = Integer.parseInt(metadata[5]);
+        String playerName = metadata[0];
+        int score = Integer.parseInt(metadata[1]);
+        int enemyShipHits = Integer.parseInt(metadata[2]);
+        int enemyShipsSunk = Integer.parseInt(metadata[3]);
+        int playerShipHits = Integer.parseInt(metadata[4]);
+        int playerShipsSunk = Integer.parseInt(metadata[5]);
 
         // create and return book of this metadata
-        return new Data(DBN, school, numSat, reading, math, writing);*/
+        return new Data(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
     }
 
 }
