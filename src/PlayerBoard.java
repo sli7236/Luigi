@@ -11,8 +11,8 @@ public class PlayerBoard extends BattleshipBoardTemplate {
         }
     }
 
-    public void selectSpace(int row, int column) { // selecting a playerboard will place the ships down when the game is in build mode
-        board[row][column].toggleSelect();
+    public void selectSpace(int row, int column, boolean x) { // selecting a playerboard will place the ships down when the game is in build mode
+        board[row][column].setSelect(x);
     }
 
     public boolean spaceIsSelected(int row, int column) {
@@ -26,7 +26,7 @@ public class PlayerBoard extends BattleshipBoardTemplate {
      * @param space2 second space
      * @return if the placement of ships is valid (there are no ships in the way)
      */
-    public boolean placeShips(Space space1, Space space2) {
+    public boolean checkShipValidity(Space space1, Space space2) {
         int row1 = space1.returnRow(); int row2 = space2.returnRow();
         int column1 = space1.returnColumn(); int column2 = space2.returnColumn();
         if (row1 != row2) {
@@ -36,18 +36,12 @@ public class PlayerBoard extends BattleshipBoardTemplate {
                         return false;
                     }
                 }
-                for (int i = row1; i <= row2; i ++) {
-                    board[i][column1].placeShip();
-                }
             }
             else {
                 for (int i = row2; i <= row1; i ++) {
                     if (board[i][column1].shipExists()) {
                         return false;
                     }
-                }
-                for (int i = row2; i <= row1; i ++) {
-                    board[i][column1].placeShip();
                 }
             }
         }
@@ -58,9 +52,6 @@ public class PlayerBoard extends BattleshipBoardTemplate {
                         return false;
                     }
                 }
-                for (int i = column1; i <= column2; i ++) {
-                    board[row1][i].placeShip();
-                }
             }
             else {
                 for (int i = column2; i <= column1; i ++) {
@@ -68,20 +59,13 @@ public class PlayerBoard extends BattleshipBoardTemplate {
                         return false;
                     }
                 }
-                for (int i = column2; i <= column1; i ++) {
-                    board[row1][i].placeShip();
-                }
             }
         }
-        for (Space[] i : board) { // unselects all the spaces after the ship is made
-            for (Space j : i) {
-                if (j.isSelected()) {
-                    j.toggleSelect();
-                }
-            }
-        }
-        ships ++;
         return true;
+    }
+
+    public void placeShip(int row, int column) {
+        board[row][column].placeShip();
     }
 
     public boolean hit(int row, int column) {

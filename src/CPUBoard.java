@@ -17,7 +17,7 @@ public class CPUBoard extends BattleshipBoardTemplate {
             int randRow = (int) (Math.random() * 10);
             int randCol = (int) (Math.random() * 10);
             int direct = (int) (Math.random() * 2); //determines the direction of the ship that is being placed-- 1 is horizontal and 2 is vertical
-            if (shipNum == 1){
+            if (i == 1){
                 if(direct == 1){ //ship is horizontal
                     if(randCol + 4 > 10){
                         randCol= (int) (Math.random() * 10);
@@ -37,7 +37,7 @@ public class CPUBoard extends BattleshipBoardTemplate {
                     }
                 }
             }
-            if (shipNum == 2){//length 4
+            if (i == 2){//length 4
                 if(direct == 1){ //ship is horizontal
                     if(randCol + 3 > 10){
                         randCol= (int) (Math.random() * 10);
@@ -57,7 +57,7 @@ public class CPUBoard extends BattleshipBoardTemplate {
                     }
                 }
             }
-            if (shipNum == 3){//length 3
+            if (i == 3){//length 3
                 if(direct == 1){ //ship is horizontal
                     if(randCol + 2 > 10){
                         randCol= (int) (Math.random() * 10);
@@ -77,7 +77,7 @@ public class CPUBoard extends BattleshipBoardTemplate {
                     }
                 }
             }
-            if (shipNum == 4||shipNum ==5){//length 2
+            if (i == 4||i == 5){//length 2
                 if(direct == 1){ //ship is horizontal
                     if(randCol + 1 > 10){
                         randCol= (int) (Math.random() * 10);

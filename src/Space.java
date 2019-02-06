@@ -55,4 +55,8 @@ public class Space {
     public int compareColumn(Space other) {
         return Math.abs(column - other.returnColumn());
     }
+
+    public void setSelect(boolean x) {
+        selected = x;
+    }
 }
