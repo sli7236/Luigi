@@ -5,17 +5,18 @@ public class GameBattleShip {
     private CPUBoard cpuBoard = new CPUBoard(10, 10);
     private int playerSelectedSpaces = 0;
     private Space selectedSpace;
-    private Space secondSpace;
 
     /**
      * @param row row of selected space on player board
      * @param column column of space on player board
      */
     public void placeDownShip(int row, int column) {
+        Space secondSpace;
+
         if (playerSelectedSpaces == 0) {
             playerBoard.selectSpace(row, column, true);
             selectedSpace = playerBoard.returnSpace(row, column);
-            playerSelectedSpaces ++;
+            playerSelectedSpaces = 1;
         }
         else if (playerSelectedSpaces == 1) {
             playerBoard.selectSpace(row, column, true);
@@ -46,11 +47,13 @@ public class GameBattleShip {
                             playerBoard.addShip();
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
+                            playerSelectedSpaces = 0;;
                         }
                     }
                     else if (selectedSpace.compareRow(secondSpace) == 0) {
                         if (selectedSpace.compareColumn(secondSpace) != 5) {
                             System.err.println("must place down ship length of 5");
+                            secondSpace.setSelect(false);
                         }
                         else {
                             for (int i = Math.min(selectedSpace.returnColumn(), secondSpace.returnColumn()); i < Math.max(selectedSpace.returnColumn(), secondSpace.returnColumn()); i ++) {
@@ -59,10 +62,14 @@ public class GameBattleShip {
                             }
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
+                            playerSelectedSpaces = 0;;
+                            playerBoard.addShip();
                         }
                     }
                     else {
-                        System.err.println("something happened");
+                        System.err.println("diagonal");
+                        selectedSpace.setSelect(false);
+                        secondSpace.setSelect(false);
                     }
                 }
                 else if (playerBoard.returnNoOfShips() == 1) {
@@ -76,6 +83,7 @@ public class GameBattleShip {
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces = 0;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -83,6 +91,7 @@ public class GameBattleShip {
                     else if (selectedSpace.compareRow(secondSpace) == 0) {
                         if (selectedSpace.compareColumn(secondSpace) != 4) {
                             System.err.println("must place down ship length of 4");
+                            secondSpace.setSelect(false);
                         }
                         else {
                             for (int i = Math.min(selectedSpace.returnColumn(), secondSpace.returnColumn()); i < Math.max(selectedSpace.returnColumn(), secondSpace.returnColumn()); i ++) {
@@ -90,6 +99,7 @@ public class GameBattleShip {
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces = 0;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -109,6 +119,7 @@ public class GameBattleShip {
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces = 0;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -116,6 +127,7 @@ public class GameBattleShip {
                     else if (selectedSpace.compareRow(secondSpace) == 0) {
                         if (selectedSpace.compareColumn(secondSpace) != 3) {
                             System.err.println("must place down ship length of 3");
+                            secondSpace.setSelect(false);
                         }
                         else {
                             for (int i = Math.min(selectedSpace.returnColumn(), secondSpace.returnColumn()); i < Math.max(selectedSpace.returnColumn(), secondSpace.returnColumn()); i ++) {
@@ -123,6 +135,7 @@ public class GameBattleShip {
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces = 0;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -142,6 +155,7 @@ public class GameBattleShip {
                                 System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces = 0;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -149,6 +163,7 @@ public class GameBattleShip {
                     else if (selectedSpace.compareRow(secondSpace) == 0) {
                         if (selectedSpace.compareColumn(secondSpace) != 2) {
                             System.err.println("must place down ship length of 2");
+                            secondSpace.setSelect(false);
                         }
                         else {
                             for (int i = Math.min(selectedSpace.returnColumn(), secondSpace.returnColumn()); i < Math.max(selectedSpace.returnColumn(), secondSpace.returnColumn()); i ++) {
@@ -156,6 +171,7 @@ public class GameBattleShip {
                                 System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
+                            playerSelectedSpaces = 0;
                             selectedSpace.setSelect(false);
                             secondSpace.setSelect(false);
                         }
@@ -185,5 +201,20 @@ public class GameBattleShip {
             return true;
         }
         return false;
+    }
+
+    public boolean ready() {
+        return playerBoard.areYouReadyKids();
+    }
+
+    public void displayBoards() {
+        System.out.println("Player board");
+        for (int i = 0; i < 10; i ++) {
+            for (int j = 0; j < 10; j ++) {
+                System.out.print("(" + i + ", " + j + "): " + playerBoard.returnSpace(i, j).isSelected() + " " + playerBoard.returnSpace(i, j).shipExists() + " | ");
+            }
+            System.out.println();
+        }
+        System.out.println(playerSelectedSpaces);
     }
 }

@@ -1,6 +1,7 @@
 public class PlayerBoard extends BattleshipBoardTemplate {
     private Space[][] board;
     private int ships = 0;
+    private boolean ready = false;
 
     public PlayerBoard(int length, int width) {
         board = new Space[length][width];
@@ -79,6 +80,13 @@ public class PlayerBoard extends BattleshipBoardTemplate {
 
     public void addShip() {
         ships ++;
+        if (ships >= 5) {
+            ready = true;
+        }
+    }
+
+    public boolean areYouReadyKids() {
+        return ready;
     }
 
     public boolean spotIsHit(int row, int column) {
