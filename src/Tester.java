@@ -4,22 +4,27 @@ public class Tester {
 
     public static void main(String[] args) {
         GameBattleShip game = new GameBattleShip();
+        game.generateEnemyShip();
 
-        while (true) {
-            if (!game.ready()) {
-                Scanner in = new Scanner(System.in);
-                String input = in.nextLine();
+        while (!game.ready()) {
+            Scanner in = new Scanner(System.in);
+            String input = in.nextLine();
+            if (input.equals("s")) {
+                game.displayBoards();
+            }
 
-                if (input.equals("s")) {
-                    game.displayBoards();
-                }
-                else if (input.contains("hit")) {
-                    String s = input.substring(3);
-                    game.attackPlayerBoard(Integer.parseInt(s.split(",")[0]), Integer.parseInt(s.split(",")[0]));
-                }
-                else {
-                    game.placeDownShip(Integer.parseInt(input.split(",")[0]), Integer.parseInt(input.split(",")[1]));
-                }
+            else {
+                game.placeDownShip(Integer.parseInt(input.split(",")[0]), Integer.parseInt(input.split(",")[1]));
+            }
+        }
+        while (game.enemyShipsLeft() > 0 && game.playerShipsLeft() > 0) {
+            Scanner in = new Scanner(System.in);
+            String input = in.nextLine();
+            if (input.equals("s")) {
+                game.displayBoards();
+            }
+            else {
+                game.attackEnemyBoard(Integer.parseInt(input.split(",")[0]), Integer.parseInt(input.split(",")[1]));
             }
         }
     }

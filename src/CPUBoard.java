@@ -14,8 +14,8 @@ public class CPUBoard extends BattleshipBoardTemplate {
         //ship space 5, space 4, space 3, space 2, space 2
         int shipNum = 1; //shipNum 1 is the largest ship with 5 spaces
         for (int i = shipNum; i < 6; i++) {
-            int randRow = (int) (Math.random() * 10);
-            int randCol = (int) (Math.random() * 10);
+            int randRow = (int) (Math.random() * 9);
+            int randCol = (int) (Math.random() * 9);
             int direct = (int) (Math.random() * 2); //determines the direction of the ship that is being placed-- 1 is horizontal and 2 is vertical
             if (i == 1){
                 if(direct == 1){ //ship is horizontal
@@ -159,6 +159,18 @@ public class CPUBoard extends BattleshipBoardTemplate {
     public boolean hit(int row, int column) {
         board[row][column].hitSpot();
         return board[row][column].shipExists();
+    }
+
+    public int shipsLeft() {
+        int spaces = 0;
+        for (int i = 0; i < board.length; i ++) {
+            for (int j = 0; j < board[i].length; j ++) {
+                if (board[i][j].shipExists() && !board[i][j].returnHit()) {
+                    spaces ++;
+                }
+            }
+        }
+        return spaces;
     }
 
     public Space returnSpace(int row, int column) {

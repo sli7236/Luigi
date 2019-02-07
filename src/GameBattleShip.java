@@ -189,6 +189,10 @@ public class GameBattleShip {
         }
     }
 
+    public void generateEnemyShip() {
+        cpuBoard.compShip();
+    }
+
     public boolean attackEnemyBoard(int row, int column) {
         if (cpuBoard.hit(row, column)) {
             System.out.println("It's a hit!");
@@ -210,6 +214,14 @@ public class GameBattleShip {
     }
 
     public void displayBoards() {
+        System.out.println("CPU Board");
+        for (int i = 0; i < 10; i ++) {
+            for (int j = 0; j < 10; j ++) {
+                System.out.print("(" + i + ", " + j + "): " + cpuBoard.returnSpace(i, j).returnHit() + " " + cpuBoard.returnSpace(i, j).shipExists() + " | ");
+            }
+            System.out.println();
+        }
+
         System.out.println("Player board");
         for (int i = 0; i < 10; i ++) {
             for (int j = 0; j < 10; j ++) {
@@ -218,5 +230,13 @@ public class GameBattleShip {
             System.out.println();
         }
         System.out.println(playerSelectedSpaces);
+    }
+
+    public int enemyShipsLeft() {
+        return cpuBoard.shipsLeft();
+    }
+
+    public int playerShipsLeft() {
+        return playerBoard.shipsLeft();
     }
 }

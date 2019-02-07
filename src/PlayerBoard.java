@@ -93,6 +93,18 @@ public class PlayerBoard extends BattleshipBoardTemplate {
         return board[row][column].returnHit();
     }
 
+    public int shipsLeft() {
+        int spaces = 0;
+        for (int i = 0; i < board.length; i ++) {
+            for (int j = 0; j < board[i].length; j ++) {
+                if (board[i][j].shipExists() && !board[i][j].returnHit()) {
+                    spaces ++;
+                }
+            }
+        }
+        return spaces;
+    }
+
     public Space returnSpace(int row, int column) {
         return board[row][column];
     }
