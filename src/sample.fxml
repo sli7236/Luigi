@@ -65,9 +65,6 @@
             <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="78.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-             <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Button" onMouseClicked=""><ImageView image="" /></Button>
-         </children>
       </GridPane>
    </children>
 </GridPane>
