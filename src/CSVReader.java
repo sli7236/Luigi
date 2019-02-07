@@ -1,3 +1,8 @@
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -74,6 +79,48 @@ public class CSVReader {
 
         // create and return book of this metadata
         return new Data(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
+    }
+
+    public static class Data {
+        private StringProperty playerName;
+        private IntegerProperty score;
+        private IntegerProperty enemyShipHits;
+        private IntegerProperty enemyShipsSunk;
+        private IntegerProperty playerShipHits;
+        private IntegerProperty playerShipsSunk;
+
+        private Data(String playerName, int score, int enemyShipHits, int enemyShipsSunk, int playerShipHits, int playerShipsSunk) {
+            this.playerName = new SimpleStringProperty(playerName);
+            this.score = new SimpleIntegerProperty(score);
+            this.enemyShipHits = new SimpleIntegerProperty(enemyShipHits);
+            this.enemyShipsSunk = new SimpleIntegerProperty(enemyShipsSunk);
+            this.playerShipHits = new SimpleIntegerProperty(playerShipHits);
+            this.playerShipsSunk = new SimpleIntegerProperty(playerShipsSunk);
+        }
+
+        public StringProperty playerNameProperty() {
+            return this.playerName;
+        }
+
+        public IntegerProperty scoreProperty() {
+            return score;
+        }
+
+        public IntegerProperty enemyShipHitsProperty() {
+            return enemyShipHits;
+        }
+
+        public IntegerProperty enemyShipsSunkProperty() {
+            return enemyShipsSunk;
+        }
+
+        public IntegerProperty playerShipHitsProperty() {
+            return playerShipHits;
+        }
+
+        public IntegerProperty playerShipsSunkProperty() {
+            return playerShipsSunk;
+        }
     }
 
 }

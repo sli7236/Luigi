@@ -1,4 +1,5 @@
 import javafx.application.Application;
+import javafx.beans.property.ReadOnlyStringWrapper;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -23,7 +24,7 @@ import static javafx.application.Application.launch;
 public class Results extends Application{
     @Override
     public void start(Stage stage) {
-        List<Data> data = CSVReader.readCSVFile("src/results.csv");
+        List<CSVReader.Data> data = CSVReader.readCSVFile("src/results.csv");
         TableView table = new TableView();
         Scene scene = new Scene(new Group());
         stage.setTitle("Results");
@@ -35,18 +36,22 @@ public class Results extends Application{
         table.setEditable(true);
 
         TableColumn playerName = new TableColumn("Player Name");
+        playerName.setCellValueFactory(new PropertyValueFactory("playerName"));
         TableColumn score = new TableColumn("Score");
+        score.setCellValueFactory(new PropertyValueFactory("score"));
         TableColumn enemyShipHits = new TableColumn("# of Times Enemy Ships Were Hit");
+        enemyShipHits.setCellValueFactory(new PropertyValueFactory("enemyShipHits"));
         TableColumn enemyShipsSunk = new TableColumn("Enemy Ships Sunk");
+        enemyShipsSunk.setCellValueFactory(new PropertyValueFactory("enemyShipsSunk"));
         TableColumn playerShipHits = new TableColumn("# of Times Enemy Ships Were Hit");
+        playerShipHits.setCellValueFactory(new PropertyValueFactory("playerShipHits"));
         TableColumn playerShipsSunk = new TableColumn("Player Ships Sunk");
+        playerShipsSunk.setCellValueFactory(new PropertyValueFactory("playerShipsSunk"));
 
         table.getColumns().addAll(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
 
-        /*for(int i = 0; i<data.size();i++){
-            Data current = data.get(i);
-            table.getColumns().addAll(new Data(current.getPlayerName(), current.getScore(), current.getEnemyShipHits(), current.getEnemyShipsSunk(), current.getPlayerShipHits(), current.getPlayerShipsSunk()));
-        }*/
+        ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data);
+        table.setItems(oListData);
 
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
