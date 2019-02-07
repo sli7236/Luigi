@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class CPUBoard extends BattleshipBoardTemplate {
     private Space[][] board;
 
@@ -11,92 +13,37 @@ public class CPUBoard extends BattleshipBoardTemplate {
     }
 
     public void compShip(){
-        //ship space 5, space 4, space 3, space 2, space 2
-        int shipNum = 1; //shipNum 1 is the largest ship with 5 spaces
-        for (int i = shipNum; i < 6; i++) {
+        int shipNum = 5;
+        while (shipNum > 0) {
+            boolean vertical = new Random().nextBoolean();
             int randRow = (int) (Math.random() * 9);
             int randCol = (int) (Math.random() * 9);
-            int direct = (int) (Math.random() * 2); //determines the direction of the ship that is being placed-- 1 is horizontal and 2 is vertical
-            if (i == 1){
-                if(direct == 1){ //ship is horizontal
-                    if(randCol + 4 > 10){
-                        randCol= (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randCol2 = randCol+4;
-                        placeShip(randRow, randRow,randCol, randCol2);
-                    }
-                }
-                if(direct == 2){ //ship is vertical
-                    if(randRow + 4 > 10){
-                        randRow = (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randRow2 = randCol+4;
-                        placeShip(randRow, randRow2,randCol, randCol);
-                    }
+            int length;
+
+            if (shipNum == 5) {
+                length = 4;
+            }
+            else if (shipNum == 4) {
+                length = 3;
+            }
+            else if (shipNum == 2 || shipNum == 3) {
+                length = 2;
+            }
+            else {
+                length = 1;
+            }
+
+            if (vertical) {
+                while (randRow + length > 9 || !placeShip(randRow, randRow + length, randCol, randCol)) {
+                    randRow = (int) (Math.random() * 9);
                 }
             }
-            if (i == 2){//length 4
-                if(direct == 1){ //ship is horizontal
-                    if(randCol + 3 > 10){
-                        randCol= (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randCol2 = randCol+3;
-                        placeShip(randRow, randRow,randCol, randCol2);
-                    }
-                }
-                if(direct == 2){ //ship is vertical
-                    if(randRow + 3 > 10){
-                        randRow = (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randRow2 = randCol+3;
-                        placeShip(randRow, randRow2,randCol, randCol);
-                    }
+            else {
+                while (randCol + length > 9 || !placeShip(randRow, randRow, randCol, randCol + length)) {
+                    randCol = (int) (Math.random() * 9);
                 }
             }
-            if (i == 3){//length 3
-                if(direct == 1){ //ship is horizontal
-                    if(randCol + 2 > 10){
-                        randCol= (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randCol2 = randCol+2;
-                        placeShip(randRow, randRow,randCol, randCol2);
-                    }
-                }
-                if(direct == 2){ //ship is vertical
-                    if(randRow + 2 > 10){
-                        randRow = (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randRow2 = randCol+2;
-                        placeShip(randRow, randRow2,randCol, randCol);
-                    }
-                }
-            }
-            if (i == 4||i == 5){//length 2
-                if(direct == 1){ //ship is horizontal
-                    if(randCol + 1 > 10){
-                        randCol= (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randCol2 = randCol+1;
-                        placeShip(randRow, randRow,randCol, randCol2);
-                    }
-                }
-                if(direct == 2){ //ship is vertical
-                    if(randRow + 1 > 10){
-                        randRow = (int) (Math.random() * 10);
-                    }
-                    else{
-                        int randRow2 = randCol+1;
-                        placeShip(randRow, randRow2,randCol, randCol);
-                    }
-                }
-            }
+            shipNum --;
         }
     }
 

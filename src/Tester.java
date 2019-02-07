@@ -27,5 +27,11 @@ public class Tester {
                 game.attackEnemyBoard(Integer.parseInt(input.split(",")[0]), Integer.parseInt(input.split(",")[1]));
             }
         }
+        if (game.enemyShipsLeft() > 0) {
+            System.err.println("EPIC LOSS");
+        }
+        else {
+            System.out.println("EPIC WIN");
+        }
     }
 }
