@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -18,7 +19,7 @@ import java.util.List;
 public class CSVReader {
 
     public static void main(String... args) {
-        List<Data> data = readCSVFile(".csv");
+        List<Data> data = readCSVFile("results.csv");
 
         // let's print all the person read from CSV file
         for (Data b : data) {
