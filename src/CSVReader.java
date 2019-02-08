@@ -84,15 +84,15 @@ public class CSVReader {
 
 
     public static class Data {
-        private StringProperty playerName;
-        private IntegerProperty score;
-        private IntegerProperty enemyShipHits;
-        private IntegerProperty enemyShipsSunk;
-        private IntegerProperty playerShipHits;
-        private IntegerProperty playerShipsSunk;
+        private static StringProperty playerName2;
+        private static IntegerProperty score;
+        private static IntegerProperty enemyShipHits;
+        private static IntegerProperty enemyShipsSunk;
+        private static IntegerProperty playerShipHits;
+        private static IntegerProperty playerShipsSunk;
 
         private Data(String playerName, int score, int enemyShipHits, int enemyShipsSunk, int playerShipHits, int playerShipsSunk) {
-            this.playerName = new SimpleStringProperty(playerName);
+            this.playerName2 = new SimpleStringProperty(playerName);
             this.score = new SimpleIntegerProperty(score);
             this.enemyShipHits = new SimpleIntegerProperty(enemyShipHits);
             this.enemyShipsSunk = new SimpleIntegerProperty(enemyShipsSunk);
@@ -100,34 +100,34 @@ public class CSVReader {
             this.playerShipsSunk = new SimpleIntegerProperty(playerShipsSunk);
         }
 
-        public StringProperty playerNameProperty() {
-            return playerName;
+        public static StringProperty playerNameProperty() {
+            return playerName2;
         }
 
-        public IntegerProperty scoreProperty() {
+        public static IntegerProperty scoreProperty() {
             return score;
         }
 
-        public IntegerProperty enemyShipHitsProperty() {
+        public static IntegerProperty enemyShipHitsProperty() {
             return enemyShipHits;
         }
 
-        public IntegerProperty enemyShipsSunkProperty() {
+        public static IntegerProperty enemyShipsSunkProperty() {
             return enemyShipsSunk;
         }
 
-        public IntegerProperty playerShipHitsProperty() {
+        public static IntegerProperty playerShipHitsProperty() {
             return playerShipHits;
         }
 
-        public IntegerProperty playerShipsSunkProperty() {
+        public static IntegerProperty playerShipsSunkProperty() {
             return playerShipsSunk;
         }
 
 
 
-        public void setPlayerNameProperty(String playerName) {
-            this.playerName = new SimpleStringProperty(playerName);
+        public static void setPlayerNameProperty(String playerName) {
+            playerName2 = new SimpleStringProperty(playerName);
         }
 
         public void setScoreProperty(int score) {
