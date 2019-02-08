@@ -7,15 +7,19 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="sceneOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sceneOne">
+<AnchorPane fx:id="sceneOne" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="loadUp">
     <children>
-        <ImageView fitHeight="450.0" fitWidth="800.0" layoutX="40.0"  opacity="0.8" pickOnBounds="true" preserveRatio="true">
+        <ImageView fitHeight="450.0" fitWidth="800.0" layoutX="40.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
             <image>
                 <Image url="@images/loadScreen.jpg" />
             </image>
         </ImageView>
       <ProgressBar fx:id="progressBar" layoutX="214.0" layoutY="292.0" prefHeight="6.0" prefWidth="372.0" progress="0.0" />
-      <Button layoutX="359.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextSceneTwo"  text="PLAY">
+      <Button layoutX="269.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextGameScene" text="PLAY">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font></Button>
+      <Button layoutX="373.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextInfoScene" text="INSTRUCTIONS">
          <font>
             <Font name="Corbel" size="22.0" />
          </font></Button>
