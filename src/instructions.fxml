@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="sceneTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <ImageView fitHeight="450.0" fitWidth="800.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images/loginScreen.jpg" />
+            </image>
+        </ImageView>
+      <Text fill="WHITE" layoutX="300.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="How to Play" wrappingWidth="222.13671875">
+         <font>
+            <Font name="Corbel" size="42.0" />
+         </font>
+      </Text>
+      <Text layoutX="100.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There are two grids on the screen, the player and the enemy." wrappingWidth="315.13671875" />
+    </children>
+</AnchorPane>
