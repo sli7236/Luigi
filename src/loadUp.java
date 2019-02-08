@@ -17,7 +17,6 @@ import java.io.IOException;
 
 public class loadUp implements Initializable{
     @FXML private AnchorPane sceneOne;
-    @FXML private TextField name;
 
     @Override
     public void initialize(URL url,ResourceBundle rb){
@@ -34,10 +33,6 @@ public class loadUp implements Initializable{
         AnchorPane pane = FXMLLoader.load(getClass().getResource("instructions.fxml"));
         sceneOne.getChildren().setAll(pane);
     }
-    @FXML private void submit(ActionEvent event) throws IOException {
-        String playerName = name.getText();
-        //Files.write(Paths.get("results.csv"), playerName.getBytes(), StandardOpenOption.APPEND);
-        System.out.println(playerName);
-    }
+
 
 }

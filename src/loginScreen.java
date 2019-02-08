@@ -18,8 +18,7 @@ import java.io.IOException;
 import java.io.IOException;
 
 public class loginScreen implements Initializable{
-    @FXML
-    private AnchorPane sceneTwo;
+    @FXML private AnchorPane sceneTwo;
     @FXML private TextField name;
 
     @Override
@@ -28,7 +27,7 @@ public class loginScreen implements Initializable{
 
     @FXML
     private void playGame(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("game.fxml"));
+        AnchorPane pane = FXMLLoader.load(this.getClass().getResource("game.fxml"));
         sceneTwo.getChildren().setAll(pane);
     }
     @FXML private void submit(ActionEvent event) throws IOException {
