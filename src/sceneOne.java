@@ -15,7 +15,8 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.io.IOException;
 
-public class sceneOne implements Initializable{
+public class sceneOne extends CSVReader implements Initializable{
+
     @FXML
     private AnchorPane sceneOne;
     @FXML private TextField name;
@@ -33,6 +34,7 @@ public class sceneOne implements Initializable{
     @FXML private void submit(ActionEvent event) throws IOException {
         String playerName = name.getText();
         //Files.write(Paths.get("results.csv"), playerName.getBytes(), StandardOpenOption.APPEND);
+        setPlayerNameProperty(playerName);
         System.out.println(playerName);
     }
 

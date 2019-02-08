@@ -82,6 +82,7 @@ public class CSVReader {
         return new Data(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
     }
 
+
     public static class Data {
         private StringProperty playerName;
         private IntegerProperty score;
@@ -100,7 +101,7 @@ public class CSVReader {
         }
 
         public StringProperty playerNameProperty() {
-            return this.playerName;
+            return playerName;
         }
 
         public IntegerProperty scoreProperty() {
@@ -121,6 +122,36 @@ public class CSVReader {
 
         public IntegerProperty playerShipsSunkProperty() {
             return playerShipsSunk;
+        }
+
+
+
+        public void setPlayerNameProperty(String playerName) {
+            this.playerName = new SimpleStringProperty(playerName);
+        }
+
+        public void setScoreProperty(int score) {
+
+            this.score = new SimpleIntegerProperty(score);
+        }
+
+        public void setEnemyShipHitsProperty(int enemyShipHits) {
+
+            this.enemyShipHits = new SimpleIntegerProperty(enemyShipHits);
+        }
+
+        public void setEnemyShipsSunkProperty(int enemyShipsSunk) {
+
+            this.enemyShipsSunk = new SimpleIntegerProperty(enemyShipsSunk);
+        }
+
+        public void setPlayerShipHitsProperty(int playerShipHits) {
+            this.playerShipHits = new SimpleIntegerProperty(playerShipHits);
+        }
+
+        public void setPlayerShipsSunkProperty(int playerShipsSunk) {
+
+            this.playerShipsSunk = new SimpleIntegerProperty(playerShipsSunk);
         }
     }
 
