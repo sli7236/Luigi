@@ -15,7 +15,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.io.IOException;
 
-public class sceneOne implements Initializable{
+public class loadUp implements Initializable{
     @FXML
     private AnchorPane sceneOne;
     @FXML private TextField name;
