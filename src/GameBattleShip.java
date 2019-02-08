@@ -5,6 +5,8 @@ public class GameBattleShip {
     private CPUBoard cpuBoard = new CPUBoard(10, 10);
     private int playerSelectedSpaces = 0;
     private Space selectedSpace;
+    private ArrayList<Space> cpuSpacesHit = new ArrayList<>();
+    private ArrayList<Space> cpuSpacesShot = new ArrayList<>();
 
     /**
      * Purpose is to place down a line that represents a ship on the field by selecting
@@ -191,6 +193,16 @@ public class GameBattleShip {
 
     public void generateEnemyShip() {
         cpuBoard.compShip();
+    }
+
+    public void hitPlayerShips() {
+        int randRow = (int) (Math.random() * 9);
+        int randCol = (int) (Math.random() * 9);
+        Space randSpace = new Space(randRow, randCol);
+
+        for (Space i : cpuSpacesShot) {
+
+        }
     }
 
     public boolean attackEnemyBoard(int row, int column) {
