@@ -5,7 +5,7 @@ public class GameBattleShip {
     private CPUBoard cpuBoard = new CPUBoard(10, 10);
     private int playerSelectedSpaces = 0;
     private Space selectedSpace;
-    private ArrayList<Space> cpuSpacesHit = new ArrayList<>();
+    private Space lastSpaceCPUHit;
     private ArrayList<Space> cpuSpacesShot = new ArrayList<>();
 
     /**
@@ -199,9 +199,15 @@ public class GameBattleShip {
         int randRow = (int) (Math.random() * 9);
         int randCol = (int) (Math.random() * 9);
         Space randSpace = new Space(randRow, randCol);
+        boolean x = true;
 
-        for (Space i : cpuSpacesShot) {
-
+        while (x) {
+            for (Space i : cpuSpacesShot) {
+                x = false;
+                if (i.equals(randSpace)) {
+                    x = true;
+                }
+            }
         }
     }
 
