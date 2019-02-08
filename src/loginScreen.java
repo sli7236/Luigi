@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 import java.io.IOException;
 
-public class sceneTwo implements Initializable{
+public class loginScreen implements Initializable{
     @FXML
     private AnchorPane sceneTwo;
 

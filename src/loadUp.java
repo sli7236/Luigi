@@ -15,10 +15,8 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.io.IOException;
 
-public class sceneOne extends CSVReader implements Initializable{
-
-    @FXML
-    private AnchorPane sceneOne;
+public class loadUp implements Initializable{
+    @FXML private AnchorPane sceneOne;
     @FXML private TextField name;
 
     @Override
@@ -26,15 +24,19 @@ public class sceneOne extends CSVReader implements Initializable{
     }
 
     @FXML
-    private void nextSceneTwo(ActionEvent event) throws IOException {
+    private void nextGameScene(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("loginScreen.fxml"));
         sceneOne.getChildren().setAll(pane);
     }
 
+    @FXML
+    private void nextInfoScene(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("instructions.fxml"));
+        sceneOne.getChildren().setAll(pane);
+    }
     @FXML private void submit(ActionEvent event) throws IOException {
         String playerName = name.getText();
         //Files.write(Paths.get("results.csv"), playerName.getBytes(), StandardOpenOption.APPEND);
-        setPlayerNameProperty(playerName);
         System.out.println(playerName);
     }
 

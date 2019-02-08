@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane fx:id="sceneTwo" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="sceneThree" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="instructions">
     <children>
         <ImageView fitHeight="450.0" fitWidth="800.0" opacity="0.8" pickOnBounds="true" preserveRatio="true">
             <image>
@@ -18,6 +18,6 @@
             <Font name="Corbel" size="42.0" />
          </font>
       </Text>
-      <Text layoutX="100.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There are two grids on the screen, the player and the enemy." wrappingWidth="315.13671875" />
+      <Text layoutX="229.0" layoutY="117.0" strokeType="OUTSIDE" strokeWidth="0.0" text="There are two grids on the screen, the player and the enemy." wrappingWidth="315.13671875" />
     </children>
 </AnchorPane>
