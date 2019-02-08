@@ -27,8 +27,8 @@ public class loginScreen implements Initializable{
     }
 
     @FXML
-    private void nextSceneThree(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("instructions.fxml"));
+    private void playGame(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("game.fxml"));
         sceneTwo.getChildren().setAll(pane);
     }
     @FXML private void submit(ActionEvent event) throws IOException {

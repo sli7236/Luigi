@@ -13,8 +13,7 @@ public class CPUBoard extends BattleshipBoardTemplate {
     }
 
     public void compShip(){
-        int shipNum = 5;
-        while (shipNum > 0) {
+        for (int shipNum = 5; shipNum > 0; shipNum --) {
             boolean vertical = new Random().nextBoolean();
             int randRow = (int) (Math.random() * 9);
             int randCol = (int) (Math.random() * 9);
@@ -43,7 +42,6 @@ public class CPUBoard extends BattleshipBoardTemplate {
                     randCol = (int) (Math.random() * 9);
                 }
             }
-            shipNum --;
         }
     }
 
