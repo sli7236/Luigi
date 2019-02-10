@@ -4,6 +4,7 @@ public class GameBattleShip {
     private PlayerBoard playerBoard = new PlayerBoard(10, 10);
     private CPUBoard cpuBoard = new CPUBoard(10, 10);
     private int playerSelectedSpaces = 0;
+    private int turnNo = 0;
     private Space selectedSpace;
     private Space lastSpaceCPUHit;
     private ArrayList<Space> cpuSpacesShot = new ArrayList<>();
@@ -210,7 +211,24 @@ public class GameBattleShip {
             }
         }
     }
-
+    
+    public void enemyTurn() {
+        if (ready()) {
+            if (turnNo % 2 == 0) { // if player's turn
+                
+            }
+            else {
+                int randRow = (int) (Math.random() * 9);
+                int randCol = (int) (Math.random() * 9);
+                while (cpuBoard.returnSpace(randRow, randCol).returnHit()) {
+                    randRow = (int) (Math.random() * 9);
+                    randCol = (int) (Math.random() * 9);
+                }
+                attackPlayerBoard(randRow, randCol);
+            }
+            turnNo ++;
+        }
+    }
     public boolean attackEnemyBoard(int row, int column) {
         if (cpuBoard.hit(row, column)) {
             System.out.println("It's a hit!");
