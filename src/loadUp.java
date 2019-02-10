@@ -3,7 +3,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
-import javafx.scene.control.TextField;
 import java.awt.*;
 import java.net.URL;
 import java.nio.file.Files;
@@ -31,6 +30,12 @@ public class loadUp implements Initializable{
     @FXML
     private void nextInfoScene(ActionEvent event) throws IOException {
         AnchorPane pane = FXMLLoader.load(getClass().getResource("instructions.fxml"));
+        sceneOne.getChildren().setAll(pane);
+    }
+
+    @FXML
+    private void nextScoreScene(ActionEvent event) throws IOException {
+        AnchorPane pane = FXMLLoader.load(getClass().getResource("results.fxml"));
         sceneOne.getChildren().setAll(pane);
     }
 

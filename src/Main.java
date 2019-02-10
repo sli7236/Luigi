@@ -4,6 +4,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class Main extends Application {
 
     @Override
@@ -13,6 +15,8 @@ public class Main extends Application {
         primaryStage.setTitle("BAATEL SHIEP5");
         primaryStage.setScene(scene);
         primaryStage.show();
+
+        //As soon as the game is loaded, the results page is set up and the table is filled out with the information in the table
     }
 
 

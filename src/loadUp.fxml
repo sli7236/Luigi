@@ -15,11 +15,15 @@
             </image>
         </ImageView>
       <ProgressBar fx:id="progressBar" layoutX="214.0" layoutY="292.0" prefHeight="6.0" prefWidth="372.0" progress="0.0" />
-      <Button layoutX="269.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextGameScene" text="PLAY">
+      <Button layoutX="359.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextGameScene" text="PLAY">
          <font>
             <Font name="Corbel" size="22.0" />
          </font></Button>
-      <Button layoutX="373.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextInfoScene" text="INSTRUCTIONS">
+      <Button layoutX="145.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextInfoScene" text="INSTRUCTIONS">
+         <font>
+            <Font name="Corbel" size="22.0" />
+         </font></Button>
+      <Button layoutX="479.0" layoutY="329.0" mnemonicParsing="false" onAction="#nextScoreScene" text="SCOREBOARD">
          <font>
             <Font name="Corbel" size="22.0" />
          </font></Button>
