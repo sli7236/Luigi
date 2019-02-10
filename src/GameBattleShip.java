@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.*;
 
 public class GameBattleShip {
@@ -5,6 +8,8 @@ public class GameBattleShip {
     private CPUBoard cpuBoard = new CPUBoard(10, 10);
     private int playerSelectedSpaces = 0;
     private int turnNo = 0;
+    private int eHits = 0;
+    private int pHits = 0;
     private Space selectedSpace;
     private Space lastSpaceCPUHit;
     private ArrayList<Space> cpuSpacesShot = new ArrayList<>();
@@ -173,7 +178,7 @@ public class GameBattleShip {
                         else {
                             for (int i = Math.min(selectedSpace.returnColumn(), secondSpace.returnColumn()); i <= Math.max(selectedSpace.returnColumn(), secondSpace.returnColumn()); i ++) {
                                 playerBoard.placeShip(selectedSpace.returnRow(), i);
-                                System.out.println("palced ship on (" + selectedSpace.returnRow() + ", " + i + ").");
+                                System.out.println("placed ship on (" + selectedSpace.returnRow() + ", " + i + ").");
                             }
                             playerBoard.addShip();
                             playerSelectedSpaces = 0;
@@ -232,6 +237,7 @@ public class GameBattleShip {
     public boolean attackEnemyBoard(int row, int column) {
         if (cpuBoard.hit(row, column)) {
             System.out.println("It's a hit!");
+            eHits++;
             return true;
         }
         return false;
@@ -240,6 +246,7 @@ public class GameBattleShip {
     public boolean attackPlayerBoard(int row, int column) {
         if (playerBoard.hit(row, column)) {
             System.out.println("You got hit AAAAAAAHHHHHHHHHHH");
+            pHits++;
             return true;
         }
         return false;
@@ -268,11 +275,40 @@ public class GameBattleShip {
         System.out.println(playerSelectedSpaces);
     }
 
+    public int getEHits()
+    {
+        return eHits;
+    }
+
+    public int getPHits()
+    {
+        return pHits;
+    }
+
     public int enemyShipsLeft() {
+
+        if (cpuBoard.shipsLeft() == 0)
+        {
+
+        }
         return cpuBoard.shipsLeft();
     }
 
-    public int playerShipsLeft() {
+    public int playerShipsLeft() throws IOException {
+
+        if (playerBoard.shipsLeft() == 0)
+        {
+            CSVReader.Data.setEnemyShipHitsProperty(eHits);
+            CSVReader.Data.setPlayerShipHitsProperty(pHits);
+            CSVReader.Data.setEnemyShipsSunkProperty(cpuBoard.shipsLeft());
+            CSVReader.Data.setPlayerShipsSunkProperty(5);
+            FileWriter fr = new FileWriter("src/results.csv", true);
+            BufferedWriter br = new BufferedWriter(fr);
+            br.newLine();
+            //br.write(playerName);
+            br.close();
+            fr.close();
+        }
         return playerBoard.shipsLeft();
     }
 

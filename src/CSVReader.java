@@ -47,15 +47,10 @@ public class CSVReader {
             // loop until all lines are read
             while (line != null) {
 
-                // use string.split to load a string array with the values from
-                // each line of
-                // the file, using a comma as the delimiter
                 String[] attributes = line.split(",(?=(?:[^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)");
                 System.out.println(Arrays.toString(attributes));
 
                 Data data = createData(attributes);
-
-                // adding book into ArrayList
                 dataSet.add(data);
 
                 // read next line before looping
@@ -85,19 +80,19 @@ public class CSVReader {
 
     public static class Data {
         private static StringProperty playerName2;
-        private static IntegerProperty score;
-        private static IntegerProperty enemyShipHits;
-        private static IntegerProperty enemyShipsSunk;
-        private static IntegerProperty playerShipHits;
-        private static IntegerProperty playerShipsSunk;
+        private static IntegerProperty score2;
+        private static IntegerProperty enemyShipHits2;
+        private static IntegerProperty enemyShipsSunk2;
+        private static IntegerProperty playerShipHits2;
+        private static IntegerProperty playerShipsSunk2;
 
         private Data(String playerName, int score, int enemyShipHits, int enemyShipsSunk, int playerShipHits, int playerShipsSunk) {
             this.playerName2 = new SimpleStringProperty(playerName);
-            this.score = new SimpleIntegerProperty(score);
-            this.enemyShipHits = new SimpleIntegerProperty(enemyShipHits);
-            this.enemyShipsSunk = new SimpleIntegerProperty(enemyShipsSunk);
-            this.playerShipHits = new SimpleIntegerProperty(playerShipHits);
-            this.playerShipsSunk = new SimpleIntegerProperty(playerShipsSunk);
+            this.score2 = new SimpleIntegerProperty(score);
+            this.enemyShipHits2 = new SimpleIntegerProperty(enemyShipHits);
+            this.enemyShipsSunk2 = new SimpleIntegerProperty(enemyShipsSunk);
+            this.playerShipHits2 = new SimpleIntegerProperty(playerShipHits);
+            this.playerShipsSunk2 = new SimpleIntegerProperty(playerShipsSunk);
         }
 
         public static StringProperty playerNameProperty() {
@@ -105,23 +100,23 @@ public class CSVReader {
         }
 
         public static IntegerProperty scoreProperty() {
-            return score;
+            return score2;
         }
 
         public static IntegerProperty enemyShipHitsProperty() {
-            return enemyShipHits;
+            return enemyShipHits2;
         }
 
         public static IntegerProperty enemyShipsSunkProperty() {
-            return enemyShipsSunk;
+            return enemyShipsSunk2;
         }
 
         public static IntegerProperty playerShipHitsProperty() {
-            return playerShipHits;
+            return playerShipHits2;
         }
 
         public static IntegerProperty playerShipsSunkProperty() {
-            return playerShipsSunk;
+            return playerShipsSunk2;
         }
 
 
@@ -130,28 +125,28 @@ public class CSVReader {
             playerName2 = new SimpleStringProperty(playerName);
         }
 
-        public void setScoreProperty(int score) {
+        public static void setScoreProperty(int score) {
 
-            this.score = new SimpleIntegerProperty(score);
+            score2 = new SimpleIntegerProperty(score);
         }
 
-        public void setEnemyShipHitsProperty(int enemyShipHits) {
+        public static void setEnemyShipHitsProperty(int enemyShipHits) {
 
-            this.enemyShipHits = new SimpleIntegerProperty(enemyShipHits);
+            enemyShipHits2 = new SimpleIntegerProperty(enemyShipHits);
         }
 
-        public void setEnemyShipsSunkProperty(int enemyShipsSunk) {
+        public static void setEnemyShipsSunkProperty(int enemyShipsSunk) {
 
-            this.enemyShipsSunk = new SimpleIntegerProperty(enemyShipsSunk);
+            enemyShipsSunk2 = new SimpleIntegerProperty(enemyShipsSunk);
         }
 
-        public void setPlayerShipHitsProperty(int playerShipHits) {
-            this.playerShipHits = new SimpleIntegerProperty(playerShipHits);
+        public static void setPlayerShipHitsProperty(int playerShipHits) {
+            playerShipHits2 = new SimpleIntegerProperty(playerShipHits);
         }
 
-        public void setPlayerShipsSunkProperty(int playerShipsSunk) {
+        public static void setPlayerShipsSunkProperty(int playerShipsSunk) {
 
-            this.playerShipsSunk = new SimpleIntegerProperty(playerShipsSunk);
+            playerShipsSunk2 = new SimpleIntegerProperty(playerShipsSunk);
         }
     }
 

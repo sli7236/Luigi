@@ -5,15 +5,16 @@ import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import java.awt.*;
+import java.io.*;
 import java.net.URL;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 import java.util.ResourceBundle;
-import java.io.FileWriter;
-import java.io.File;
-import java.io.PrintWriter;
-import java.io.IOException;
 
 import java.io.IOException;
 
@@ -27,9 +28,14 @@ public class loginScreen implements Initializable{
 
     @FXML private void submit(ActionEvent event) throws IOException {
         String playerName = name.getText();
-        //Files.write(Paths.get("results.csv"), playerName.getBytes(), StandardOpenOption.APPEND);
+        /*FileWriter fr = new FileWriter("src/results.csv", true);
+        BufferedWriter br = new BufferedWriter(fr);
+        br.newLine();
+        br.write(playerName);
+        br.close();
+        fr.close();*/
         CSVReader.Data.setPlayerNameProperty(playerName);
-        System.out.println(CSVReader.Data.playerNameProperty());
+        System.out.println(CSVReader.Data.playerNameProperty().getValue());
 
         AnchorPane pane = FXMLLoader.load(this.getClass().getResource("game.fxml"));
         sceneTwo.getChildren().setAll(pane);
