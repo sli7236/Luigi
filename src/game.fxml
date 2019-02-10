@@ -152,12 +152,12 @@
             <Button fx:id="P99" mnemonicParsing="false" text="9,9" GridPane.columnIndex="9" GridPane.rowIndex="9" />
          </children>
       </GridPane>
-      <Text fill="WHITE" layoutX="558.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enemy ">
+      <Text fill="WHITE" layoutX="558.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Enemy ">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fill="WHITE" layoutX="131.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player ">
+      <Text fill="WHITE" layoutX="131.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Player ">
          <font>
             <Font name="Corbel" size="36.0" />
          </font>

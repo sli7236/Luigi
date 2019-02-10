@@ -25,16 +25,14 @@ public class loginScreen implements Initializable{
     public void initialize(URL url,ResourceBundle rb){
     }
 
-    @FXML
-    private void playGame(ActionEvent event) throws IOException {
-        AnchorPane pane = FXMLLoader.load(this.getClass().getResource("game.fxml"));
-        sceneTwo.getChildren().setAll(pane);
-    }
     @FXML private void submit(ActionEvent event) throws IOException {
         String playerName = name.getText();
         //Files.write(Paths.get("results.csv"), playerName.getBytes(), StandardOpenOption.APPEND);
         CSVReader.Data.setPlayerNameProperty(playerName);
         System.out.println(CSVReader.Data.playerNameProperty());
+
+        AnchorPane pane = FXMLLoader.load(this.getClass().getResource("game.fxml"));
+        sceneTwo.getChildren().setAll(pane);
     }
 
 
