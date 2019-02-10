@@ -73,7 +73,6 @@ public class CSVReader {
         int playerShipHits = Integer.parseInt(metadata[4]);
         int playerShipsSunk = Integer.parseInt(metadata[5]);
 
-        // create and return book of this metadata
         return new Data(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
     }
 

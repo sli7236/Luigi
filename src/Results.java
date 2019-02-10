@@ -43,7 +43,7 @@ public class Results extends Application{
         enemyShipHits.setCellValueFactory(new PropertyValueFactory("enemyShipHits"));
         TableColumn enemyShipsSunk = new TableColumn("Enemy Ships Sunk");
         enemyShipsSunk.setCellValueFactory(new PropertyValueFactory("enemyShipsSunk"));
-        TableColumn playerShipHits = new TableColumn("# of Times Player Ships Were Hit");
+        TableColumn playerShipHits = new TableColumn("# of Times Enemy Ships Were Hit");
         playerShipHits.setCellValueFactory(new PropertyValueFactory("playerShipHits"));
         TableColumn playerShipsSunk = new TableColumn("Player Ships Sunk");
         playerShipsSunk.setCellValueFactory(new PropertyValueFactory("playerShipsSunk"));
@@ -63,6 +63,7 @@ public class Results extends Application{
 
         stage.setScene(scene);
         stage.show();
+
     }
 
     public static void main(String[] args) {
