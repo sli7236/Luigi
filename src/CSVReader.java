@@ -24,7 +24,7 @@ import java.util.List;
 public class CSVReader {
 
     public static void main(String... args) {
-        List<Data> data = readCSVFile("results.csv");
+        List<Data> data = readCSVFile("src/results.csv");
 
         // let's print all the person read from CSV file
         for (Data b : data) {

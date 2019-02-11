@@ -1,3 +1,5 @@
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -21,12 +23,14 @@ import java.util.List;
 public class resultsFXML implements Initializable{
     @FXML private AnchorPane scoreScene;
     @FXML private TableView<CSVReader.Data> tableView;
-    @FXML private TableColumn<playInfo,String> nameColumn;
-    @FXML private TableColumn<playInfo,Integer> scoreColumn;
-    @FXML private TableColumn<playInfo,Integer> eHitColumn;
-    @FXML private TableColumn<playInfo, Integer> eSunkColumn;
-    @FXML private TableColumn<playInfo,Integer> pHitColumn;
-    @FXML private TableColumn<playInfo,Integer> pSunkColumn;
+    @FXML private TableColumn<CSVReader,StringProperty> nameColumn;
+    @FXML private TableColumn<CSVReader, IntegerProperty> scoreColumn;
+    @FXML private TableColumn<CSVReader,IntegerProperty> eHitColumn;
+    @FXML private TableColumn<CSVReader, IntegerProperty> eSunkColumn;
+    @FXML private TableColumn<CSVReader,IntegerProperty> pHitColumn;
+    @FXML private TableColumn<CSVReader,IntegerProperty> pSunkColumn;
+
+
 
     @FXML
     public void backLoadScene(ActionEvent event) throws IOException {
@@ -37,12 +41,12 @@ public class resultsFXML implements Initializable{
     @Override
     public void initialize(URL url,ResourceBundle rb){
         Scene scene = new Scene(new Group());
-        nameColumn.setCellValueFactory(new PropertyValueFactory<playInfo,String>("playerName"));
-        scoreColumn.setCellValueFactory(new PropertyValueFactory<playInfo,Integer>("score"));
-        eHitColumn.setCellValueFactory(new PropertyValueFactory<playInfo,Integer>("eHit"));
-        eSunkColumn.setCellValueFactory(new PropertyValueFactory<playInfo,Integer>("eSunk"));
-        pHitColumn.setCellValueFactory(new PropertyValueFactory<playInfo,Integer>("pHit"));
-        pSunkColumn.setCellValueFactory(new PropertyValueFactory<playInfo,Integer>("pSunk"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory("playerName"));
+        scoreColumn.setCellValueFactory(new PropertyValueFactory("score"));
+        eHitColumn.setCellValueFactory(new PropertyValueFactory("eHit"));
+        eSunkColumn.setCellValueFactory(new PropertyValueFactory("eSunk"));
+        pHitColumn.setCellValueFactory(new PropertyValueFactory("pHit"));
+        pSunkColumn.setCellValueFactory(new PropertyValueFactory("pSunk"));
 
         tableView.setItems(getPeople());
 

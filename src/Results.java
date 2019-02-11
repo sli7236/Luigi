@@ -48,10 +48,10 @@ public class Results extends Application{
         TableColumn playerShipsSunk = new TableColumn("Player Ships Sunk");
         playerShipsSunk.setCellValueFactory(new PropertyValueFactory("playerShipsSunk"));
 
-        table.getColumns().addAll(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
 
         ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data);
         table.setItems(oListData);
+        tableView.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
 
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
