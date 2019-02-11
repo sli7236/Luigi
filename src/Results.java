@@ -43,7 +43,7 @@ public class Results extends Application{
         enemyShipHits.setCellValueFactory(new PropertyValueFactory("enemyShipHits"));
         TableColumn enemyShipsSunk = new TableColumn("Enemy Ships Sunk");
         enemyShipsSunk.setCellValueFactory(new PropertyValueFactory("enemyShipsSunk"));
-        TableColumn playerShipHits = new TableColumn("# of Times Enemy Ships Were Hit");
+        TableColumn playerShipHits = new TableColumn("# of Times Player Ships Were Hit");
         playerShipHits.setCellValueFactory(new PropertyValueFactory("playerShipHits"));
         TableColumn playerShipsSunk = new TableColumn("Player Ships Sunk");
         playerShipsSunk.setCellValueFactory(new PropertyValueFactory("playerShipsSunk"));
@@ -51,7 +51,7 @@ public class Results extends Application{
 
         ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data);
         table.setItems(oListData);
-        tableView.getColumns().addAll(firstNameCol, lastNameCol, emailCol);
+        table.getColumns().addAll(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
 
         final VBox vbox = new VBox();
         vbox.setSpacing(5);
