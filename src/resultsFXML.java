@@ -4,8 +4,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.fxml.Initializable;
@@ -13,10 +15,12 @@ import javafx.event.ActionEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 
 import java.util.List;
 
@@ -40,26 +44,43 @@ public class resultsFXML implements Initializable{
 
     @Override
     public void initialize(URL url,ResourceBundle rb){
-        Scene scene = new Scene(new Group());
-        nameColumn.setCellValueFactory(new PropertyValueFactory("playerName"));
-        scoreColumn.setCellValueFactory(new PropertyValueFactory("score"));
-        eHitColumn.setCellValueFactory(new PropertyValueFactory("eHit"));
-        eSunkColumn.setCellValueFactory(new PropertyValueFactory("eSunk"));
-        pHitColumn.setCellValueFactory(new PropertyValueFactory("pHit"));
-        pSunkColumn.setCellValueFactory(new PropertyValueFactory("pSunk"));
-
-        tableView.setItems(getPeople());
-
-    }
-
-    /**
-     * This method will use an observable list(used with scene builder bc javafx is an ass and can't use array list)return data to fill the table with
-     **/
-    public ObservableList<CSVReader.Data> getPeople(){
         List<CSVReader.Data> data = CSVReader.readCSVFile("src/results.csv");
-        ObservableList<CSVReader.Data> info = FXCollections.observableArrayList(data);
-        return info;
+        TableView table = new TableView();
+
+        table.setEditable(true);
+
+        TableColumn playerName = new TableColumn("Player Name");
+        playerName.setCellValueFactory(new PropertyValueFactory("playerName"));
+        TableColumn score = new TableColumn("Score");
+        score.setCellValueFactory(new PropertyValueFactory("score"));
+        TableColumn enemyShipHits = new TableColumn("# of Times Enemy Ships Were Hit");
+        enemyShipHits.setCellValueFactory(new PropertyValueFactory("enemyShipHits"));
+        TableColumn enemyShipsSunk = new TableColumn("Enemy Ships Sunk");
+        enemyShipsSunk.setCellValueFactory(new PropertyValueFactory("enemyShipsSunk"));
+        TableColumn playerShipHits = new TableColumn("# of Times Player Ships Were Hit");
+        playerShipHits.setCellValueFactory(new PropertyValueFactory("playerShipHits"));
+        TableColumn playerShipsSunk = new TableColumn("Player Ships Sunk");
+        playerShipsSunk.setCellValueFactory(new PropertyValueFactory("playerShipsSunk"));
+
+
+        ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data);
+        /**
+         * The problem is that what ever the CSVReader is returning, it's doing something wrong.
+         * ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data.get(0)); displays John on the table, despite being the third item in the data array list
+         * I changed the index in the data.get() and each time it would only return john and nothing else
+         * The table would only display the last line of the file
+         *
+         * **/
+
+        table.setItems(oListData);
+        table.getColumns().addAll(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
+
+        scoreScene.setPadding(new Insets(30, 10, 20, 40));
+        scoreScene.getChildren().addAll(table);
+
     }
+
+
 
 
 }

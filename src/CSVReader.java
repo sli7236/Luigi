@@ -24,16 +24,17 @@ import java.util.List;
 public class CSVReader {
 
     public static void main(String... args) {
-        List<Data> data = readCSVFile("src/results.csv");
+        List<CSVReader.Data> data = readCSVFile("src/results.csv");
 
         // let's print all the person read from CSV file
-        for (Data b : data) {
-            System.out.println(b);
-        }
+        //for (Data b : data) {
+          //  System.out.println(b);
+        //}
     }
 
-    public static List<Data> readCSVFile(String fileName) {
+    public static List<CSVReader.Data> readCSVFile(String fileName) {
         List<Data> dataSet = new ArrayList<>();
+        ArrayList<String> otherDataSet = new ArrayList<>();
         Path pathToFile = Paths.get(fileName);
 
         // create an instance of BufferedReader
@@ -49,7 +50,7 @@ public class CSVReader {
 
                 String[] attributes = line.split(",(?=(?:[^\\\"]*\\\"[^\\\"]*\\\")*[^\\\"]*$)");
                 System.out.println(Arrays.toString(attributes));
-
+                otherDataSet.add(Arrays.toString(attributes)); ///turns the data into string
                 Data data = createData(attributes);
                 dataSet.add(data);
 
@@ -57,11 +58,10 @@ public class CSVReader {
                 // if end of file reached, line would be null
                 line = br.readLine();
             }
-
         } catch (IOException ioe) {
             ioe.printStackTrace();
         }
-
+        System.out.println(otherDataSet);
         return dataSet;
     }
 
@@ -85,7 +85,7 @@ public class CSVReader {
         private static IntegerProperty playerShipHits2;
         private static IntegerProperty playerShipsSunk2;
 
-        private Data(String playerName, int score, int enemyShipHits, int enemyShipsSunk, int playerShipHits, int playerShipsSunk) {
+        public Data(String playerName, int score, int enemyShipHits, int enemyShipsSunk, int playerShipHits, int playerShipsSunk) {
             this.playerName2 = new SimpleStringProperty(playerName);
             this.score2 = new SimpleIntegerProperty(score);
             this.enemyShipHits2 = new SimpleIntegerProperty(enemyShipHits);

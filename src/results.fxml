@@ -16,24 +16,14 @@
                 <Image url="@images/loginScreen.jpg" />
             </image>
         </ImageView>
-      <TableView fx:id="tableView" layoutX="21.0" layoutY="78.0" prefHeight="322.0" prefWidth="758.0">
-        <columns>
-          <TableColumn fx:id="nameColumn" prefWidth="95.0" text="Player Name" />
-          <TableColumn fx:id="scoreColumn" prefWidth="50.0" text="Score" />
-            <TableColumn fx:id="eHitColumn" prefWidth="194.0" text="# of Times Enemy Ships Were Hit" />
-            <TableColumn fx:id="eSunkColumn" minWidth="0.0" prefWidth="111.0" text="Enemy Ships Sunk" />
-            <TableColumn fx:id="pHitColumn" minWidth="0.0" prefWidth="198.0" text="# of Times Player Ships Were Hit" />
-            <TableColumn fx:id="pSunkColumn" prefWidth="109.0" text="Player Ships Sunk" />
-        </columns>
-      </TableView>
-      <Text fill="WHITE" layoutX="300.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scoreboard">
-         <font>
-            <Font name="Corbel" size="42.0" />
-         </font></Text>
-      <Button layoutX="711.0" layoutY="409.0" mnemonicParsing="false" onAction="#backLoadScene" text="BACK">
-         <font>
-            <Font name="Corbel" size="12.0" />
-         </font>
-      </Button>
+                <Text fill="WHITE" layoutX="300.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scoreboard">
+            <font>
+                <Font name="Corbel" size="42.0" />
+            </font></Text>
+        <Button layoutX="711.0" layoutY="409.0" mnemonicParsing="false" onAction="#backLoadScene" text="BACK">
+            <font>
+                <Font name="Corbel" size="12.0" />
+            </font>
+        </Button>
     </children>
 </AnchorPane>

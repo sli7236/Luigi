@@ -25,8 +25,7 @@ import java.util.List;
 public class Controller {
     @FXML private AnchorPane gamePlay;
     @FXML private Button one;
-
-   @FXML private Button two;
+    @FXML private Button two;
     @FXML private Button three;
     @FXML private Button four;
     @FXML private Button five;
@@ -129,7 +128,7 @@ public class Controller {
     public void init(){
         GameBattleShip game = new GameBattleShip();
         game.generateEnemyShip();
-        P00.game.placeDownShip(0,0);
+        //P00.game.placeDownShip(0,0);
     }
 
 

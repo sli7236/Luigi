@@ -49,8 +49,8 @@ public class Results extends Application{
         playerShipsSunk.setCellValueFactory(new PropertyValueFactory("playerShipsSunk"));
 
 
-        ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data);
-        table.setItems(oListData);
+       // ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data);
+        //table.setItems(oListData);
         table.getColumns().addAll(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
 
         final VBox vbox = new VBox();
