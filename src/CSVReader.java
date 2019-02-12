@@ -44,7 +44,6 @@ public class CSVReader {
 
             // read the first line from the text file
             String line = br.readLine();
-
             // loop until all lines are read
             while (line != null) {
 
@@ -78,12 +77,12 @@ public class CSVReader {
 
 
     public static class Data {
-        private static StringProperty playerName2;
-        private static IntegerProperty score2;
-        private static IntegerProperty enemyShipHits2;
-        private static IntegerProperty enemyShipsSunk2;
-        private static IntegerProperty playerShipHits2;
-        private static IntegerProperty playerShipsSunk2;
+        private StringProperty playerName2;
+        private IntegerProperty score2;
+        private IntegerProperty enemyShipHits2;
+        private IntegerProperty enemyShipsSunk2;
+        private IntegerProperty playerShipHits2;
+        private IntegerProperty playerShipsSunk2;
 
         public Data(String playerName, int score, int enemyShipHits, int enemyShipsSunk, int playerShipHits, int playerShipsSunk) {
             this.playerName2 = new SimpleStringProperty(playerName);
@@ -94,56 +93,56 @@ public class CSVReader {
             this.playerShipsSunk2 = new SimpleIntegerProperty(playerShipsSunk);
         }
 
-        public static StringProperty playerNameProperty() {
+        public StringProperty playerNameProperty() {
             return playerName2;
         }
 
-        public static IntegerProperty scoreProperty() {
+        public IntegerProperty scoreProperty() {
             return score2;
         }
 
-        public static IntegerProperty enemyShipHitsProperty() {
+        public IntegerProperty enemyShipHitsProperty() {
             return enemyShipHits2;
         }
 
-        public static IntegerProperty enemyShipsSunkProperty() {
+        public IntegerProperty enemyShipsSunkProperty() {
             return enemyShipsSunk2;
         }
 
-        public static IntegerProperty playerShipHitsProperty() {
+        public IntegerProperty playerShipHitsProperty() {
             return playerShipHits2;
         }
 
-        public static IntegerProperty playerShipsSunkProperty() {
+        public IntegerProperty playerShipsSunkProperty() {
             return playerShipsSunk2;
         }
 
 
 
-        public static void setPlayerNameProperty(String playerName) {
+        public void setPlayerNameProperty(String playerName) {
             playerName2 = new SimpleStringProperty(playerName);
         }
 
-        public static void setScoreProperty(int score) {
+        public void setScoreProperty(int score) {
 
             score2 = new SimpleIntegerProperty(score);
         }
 
-        public static void setEnemyShipHitsProperty(int enemyShipHits) {
+        public void setEnemyShipHitsProperty(int enemyShipHits) {
 
             enemyShipHits2 = new SimpleIntegerProperty(enemyShipHits);
         }
 
-        public static void setEnemyShipsSunkProperty(int enemyShipsSunk) {
+        public void setEnemyShipsSunkProperty(int enemyShipsSunk) {
 
             enemyShipsSunk2 = new SimpleIntegerProperty(enemyShipsSunk);
         }
 
-        public static void setPlayerShipHitsProperty(int playerShipHits) {
+        public void setPlayerShipHitsProperty(int playerShipHits) {
             playerShipHits2 = new SimpleIntegerProperty(playerShipHits);
         }
 
-        public static void setPlayerShipsSunkProperty(int playerShipsSunk) {
+        public void setPlayerShipsSunkProperty(int playerShipsSunk) {
 
             playerShipsSunk2 = new SimpleIntegerProperty(playerShipsSunk);
         }

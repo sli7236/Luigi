@@ -298,7 +298,7 @@ public class GameBattleShip {
 
         if (playerBoard.shipsLeft() == 0)
         {
-            CSVReader.Data.setEnemyShipHitsProperty(eHits);
+            /*CSVReader.Data.setEnemyShipHitsProperty(eHits);
             CSVReader.Data.setPlayerShipHitsProperty(pHits);
             CSVReader.Data.setEnemyShipsSunkProperty(cpuBoard.shipsLeft());
             CSVReader.Data.setPlayerShipsSunkProperty(5);
@@ -307,7 +307,7 @@ public class GameBattleShip {
             br.newLine();
             //br.write(playerName);
             br.close();
-            fr.close();
+            fr.close();*/
         }
         return playerBoard.shipsLeft();
     }
