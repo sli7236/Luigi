@@ -36,6 +36,7 @@ public class resultsFXML implements Initializable{
 
     @Override
     public void initialize(URL url,ResourceBundle rb){
+        tablePane.getStylesheets().add("tableCSS.css");
         List<CSVReader.Data> data = CSVReader.readCSVFile("src/results.csv");
         TableView table = new TableView();
 
