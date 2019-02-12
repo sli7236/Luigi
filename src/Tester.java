@@ -38,23 +38,19 @@ public class Tester {
             System.out.println("EPIC WIN");
         }
 
-        CSVReader.Data.setScoreProperty(100 - game.getEHits());
-        CSVReader.Data.setEnemyShipHitsProperty(game.getEHits());
-        CSVReader.Data.setPlayerShipHitsProperty(game.getPHits());
-        CSVReader.Data.setEnemyShipsSunkProperty(game.enemyShipsLeft());
-        CSVReader.Data.setPlayerShipsSunkProperty(game.playerShipsLeft());
+
         FileWriter fr = new FileWriter("src/results.csv", true);
         BufferedWriter br = new BufferedWriter(fr);
         br.newLine();
-        br.write(CSVReader.Data.playerNameProperty().getValue() + "," + CSVReader.Data.scoreProperty().getValue() + "," + CSVReader.Data.enemyShipHitsProperty().getValue() + "," + CSVReader.Data.enemyShipsSunkProperty().getValue() + "," + CSVReader.Data.playerShipHitsProperty().getValue() + "," + CSVReader.Data.playerShipsSunkProperty().getValue());
+        br.write(100 - game.getEHits() + "," + game.getEHits() + "," + game.enemyShipsLeft() + "," + game.getPHits() + "," + game.playerShipsLeft());
         br.close();
         fr.close();
 
-        FileWriter fw = new FileWriter("src/scoreboard.csv", true);
+        /*FileWriter fw = new FileWriter("src/scoreboard.csv", true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.newLine();
         bw.write(CSVReader.Data.playerNameProperty().getValue() + "," + CSVReader.Data.scoreProperty().getValue());
         bw.close();
-        fw.close();
+        fw.close();*/
     }
 }

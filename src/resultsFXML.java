@@ -26,15 +26,7 @@ import java.util.List;
 
 public class resultsFXML implements Initializable{
     @FXML private AnchorPane scoreScene;
-    @FXML private TableView<CSVReader.Data> tableView;
-    @FXML private TableColumn<CSVReader,StringProperty> nameColumn;
-    @FXML private TableColumn<CSVReader, IntegerProperty> scoreColumn;
-    @FXML private TableColumn<CSVReader,IntegerProperty> eHitColumn;
-    @FXML private TableColumn<CSVReader, IntegerProperty> eSunkColumn;
-    @FXML private TableColumn<CSVReader,IntegerProperty> pHitColumn;
-    @FXML private TableColumn<CSVReader,IntegerProperty> pSunkColumn;
-
-
+    @FXML private AnchorPane tablePane;
 
     @FXML
     public void backLoadScene(ActionEvent event) throws IOException {
@@ -64,6 +56,7 @@ public class resultsFXML implements Initializable{
 
 
         ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data);
+        System.out.println(oListData.get(0).toString());
         /**
          * The problem is that what ever the CSVReader is returning, it's doing something wrong.
          * ObservableList<CSVReader.Data> oListData = FXCollections.observableArrayList(data.get(0)); displays John on the table, despite being the third item in the data array list
@@ -72,11 +65,12 @@ public class resultsFXML implements Initializable{
          *
          * **/
 
-        table.setItems(oListData);
-        table.getColumns().addAll(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
 
-        scoreScene.setPadding(new Insets(30, 10, 20, 40));
-        scoreScene.getChildren().addAll(table);
+        table.getColumns().addAll(playerName, score, enemyShipHits, enemyShipsSunk, playerShipHits, playerShipsSunk);
+        table.setItems(oListData);
+
+        tablePane.setPadding(new Insets(30, 10, 20, 40));
+        tablePane.getChildren().addAll(table);
 
     }
 

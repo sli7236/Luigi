@@ -28,14 +28,12 @@ public class loginScreen implements Initializable{
 
     @FXML private void submit(ActionEvent event) throws IOException {
         String playerName = name.getText();
-        /*FileWriter fr = new FileWriter("src/results.csv", true);
+        FileWriter fr = new FileWriter("src/results.csv", true);
         BufferedWriter br = new BufferedWriter(fr);
         br.newLine();
-        br.write(playerName);
+        br.write(playerName + ",");
         br.close();
-        fr.close();*/
-        CSVReader.Data.setPlayerNameProperty(playerName);
-        System.out.println(CSVReader.Data.playerNameProperty().getValue());
+        fr.close();
 
         AnchorPane pane = FXMLLoader.load(this.getClass().getResource("game.fxml"));
         sceneTwo.getChildren().setAll(pane);
